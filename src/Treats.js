@@ -1,10 +1,12 @@
 class Treats {
-    constructor(r){
+    constructor(r, extraSpeed, santaPositiony){
         this.x = 720;
-        this.y = 40;
+        this.y = santaPositiony;
         this.width = 40;
         this.height = 40;
         this.image = r;
+
+        this.extraSpeed = extraSpeed;
 
         this.gravity = 0.05; 
         this.velocity = 0;
@@ -17,6 +19,6 @@ class Treats {
         
         this.x -= random(0,4)
         //this.y += 0.5;
-        this.y += 0.8;
+        this.y += (0.8*this.extraSpeed);
     }
 }

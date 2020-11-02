@@ -12,21 +12,39 @@ class Game{
         this.background.setup();
     }
 
-    collisionCheck(player, obstacle){
+    collisionCheckFalse(player, obstacle){
         // player left from obstacle
-        if(player.x + player.width <= obstacle.x){
+        if(player.x + player.width <= obstacle.x + lag){
             return false
         }
         // obstacle is left from player
-        if(obstacle.x + obstacle.width <= player.x){
+        if(obstacle.x + obstacle.width <= player.x + lag){
             return false
         }
         // player is above obstacle
-        if(player.y >= obstacle.y + obstacle.height){
+        if(player.y + lag >= obstacle.y + obstacle.height){
             return false
         }
         return true;
     }
+
+    collisionCheckTrue(player, obstacle){
+        // player left from obstacle
+        if(player.x + player.width <= obstacle.x + lag){
+            return false
+        }
+        // obstacle is left from player
+        if(obstacle.x + obstacle.width <= player.x + lag){
+            return false
+        }
+        // player is above obstacle
+        if(player.y + lag >= obstacle.y + obstacle.height){
+            return false
+        }
+        return true;
+    }
+
+
 
     draw(){
         this.background.draw();
@@ -45,23 +63,24 @@ class Game{
         this.obstacles.forEach( (obstacle, index) => {
             obstacle.draw();
             
-            // //check if obstacle is out of canvas
-            // if(obstacle.x + obstacle.width <= offGrid){ // when zero, images are 'moving' 
-            //     this.obstacles.splice(index, 1);
-            // }
+            //check if obstacle is out of canvas
+            if(obstacle.x + obstacle.width <= offGrid){ // when zero, images are 'moving' 
+                this.obstacles.splice(index, 1);
+            }
 
-            // if (this.collisionCheck(obstacle, this.player)){
-            //     console.log("GAME OVERRRRR");
-            //     noLoop();
-            // }  
+            if (this.collisionCheckFalse(obstacle, this.player)){
+                console.log("GAME OVERRRRR");
+                noLoop();
+            }  
 
         });
 
         /// PRESENT TIME 
-        if (frameCount % 120 === 0){
+        const randomTime = Math.floor(random(90,150));
+        if (frameCount % randomTime === 0){
             const rPic = Math.floor(random(0,presentsPic.length));
-            const randomSpeed
-            this.presents.push(new Treats(rPic));
+            const randomSpeed = random(0.5,2);
+            this.presents.push(new Treats(rPic,randomSpeed,this.figurant.y+this.figurant.height/4));
         }
         this.presents.forEach((present, index) => {
             present.draw();

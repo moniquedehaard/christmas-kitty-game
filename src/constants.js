@@ -17,6 +17,7 @@ let presentsPic = [];
 // Floor, where player and objects should 'walk'
 let floor = 350; 
 let offGrid = -500;
+let lag = 20;
 
 
 //// SETTINGS OF CHARACTER////
