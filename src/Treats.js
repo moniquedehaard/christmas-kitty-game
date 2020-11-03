@@ -1,6 +1,6 @@
 class Treats {
-    constructor(r, extraSpeed, santaPositiony){
-        this.x = 720;
+    constructor(r, extraSpeed,santaPositionx, santaPositiony){
+        this.x = santaPositionx;
         this.y = santaPositiony;
         this.width = 40;
         this.height = 40;

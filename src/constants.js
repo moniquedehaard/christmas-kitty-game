@@ -8,8 +8,12 @@ let player;
 let santa; // == figurant
 let obstaclesPic = [];
 let presentsPic = [];
+let heart;
 
-
+// levels speed
+let speed1 = 3;
+let speed2 = 7;
+let speed3 = 12;
 
 
 
@@ -18,6 +22,7 @@ let presentsPic = [];
 let floor = 350; 
 let offGrid = -500;
 let lag = 20;
+let presentsForLive = 10;
 
 
 //// SETTINGS OF CHARACTER////

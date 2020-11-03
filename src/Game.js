@@ -6,7 +6,12 @@ class Game{
         //this.obstacle = new Obstacle();
         this.obstacles = [];
         this.presents = [];
+
         this.score = 0;
+        this.lives = 7;
+
+        this.level = 1;
+
     }
 
     setup(){
@@ -50,46 +55,79 @@ class Game{
         return true;
     }
 
-
-
     draw(){
+        // draw functions
         this.background.draw();
         this.figurant.draw();
         this.player.draw(); 
 
+
+        // Text border
+        textSize(26);
+        textFont('Courier New');
+        text(`${this.score}`,60,40);
+        fill(255,250,250);
+        image(presentsPic[1],10,10, 40,40)
+        image(heart,10,50, 40,40)
+        text(`${this.lives}`, 60,80)
+
+        /// SPECIFYING LEVELS
+        if(frameCount % 1200 === 0){
+            console.log('YES NEW LEVEL 2')
+            this.level = 2;
+        }
+        if(frameCount % 3200 === 0 ){
+            console.log('YES NEW LEVEL 3')
+            this.level = 3;
+        }
+
         /// OBSTACLE TIME
         // Adding new Obstacle each x seconds (60 per second)
-        //const count = 140 + Math.floor(random(-40,60));
+        //const count = 10 + Math.floor(random(-20,80));
         const count = 160;
         if(frameCount % count === 0){ // 2 seconds
             const r = Math.floor(random(0,obstaclesPic.length));
-            this.obstacles.push(new Obstacle(r));
+            const newObs = new Obstacle(r,this.level);
+            this.obstacles.push(newObs);
+            console.log(newObs.level)
         }
 
-        /// Draw each obstacle
-        this.obstacles.forEach( (obstacle, index) => {
-            obstacle.draw();
-            
-            // //check if obstacle is out of canvas
-            // if(obstacle.x + obstacle.width <= offGrid){ // when zero, images are 'moving' 
-            //     this.obstacles.splice(index, 1);
-            // }
 
-            // if (this.collisionCheckFalse(obstacle, this.player)){
-            //     console.log("GAME OVERRRRR");
-                   //noLoop();
-            // }  
+        /// For each obstracle in the obstacle array
+        this.obstacles.forEach( (obstacle, index) => {
+            // draw obstacle
+            obstacle.draw();
+
+         
+            // //check if obstacle is out of canvas
+            if(obstacle.x + obstacle.width <= offGrid){ // when zero, images are 'moving' 
+                this.obstacles.splice(index, 1);
+            }
+
+            // Collision check and live checks
+            if (this.collisionCheckFalse(obstacle, this.player)){
+                if(!obstacle.touched){
+                    obstacle.touched = true;
+                    if(this.lives > 1){
+                        this.lives--;
+                    } else {
+                        console.log("GAME OVERRRRR");
+                        noLoop();
+                    }
+                }   
+            }  
 
         });
 
 
         /// PRESENT TIME 
         //const randomTime = Math.floor(random(90,150));
-        const randomTime = 150;
+        //const randomTime = 150;
+        const randomTime = Math.floor(random(120,190));
         if (frameCount % randomTime === 0){
             const rPic = Math.floor(random(0,presentsPic.length));
             const randomSpeed = random(0.5,2);
-            this.presents.push(new Treats(rPic,randomSpeed,this.figurant.y+this.figurant.height/4));
+            this.presents.push(new Treats(rPic,randomSpeed,this.figurant.x - this.figurant.width/9,this.figurant.y + this.figurant.height/4));
         }
         // draw present
         this.presents.forEach((present, index) => {
@@ -100,16 +138,36 @@ class Game{
             if(present.y >= HEIGHT + 100){
                 this.presents.splice(index,1);
             }
-
             
+            // collision check with presents
             if (this.collisionCheckTrue(this.player,present)) {
-                console.log('GOT THE PRESENT :D '); 
                 this.score++;
-                console.log(this.score);
+                if(this.score === presentsForLive){
+                    this.lives++
+                    this.score = 0;
+                }
                 this.presents.splice(index,1);
             }
         });
 
+
+        /// COLLISION WITH SANTA
+        // reset santa's touched property
+        if(!this.collisionCheckFalse(this.figurant, this.player) && this.figurant.touched){
+            this.figurant.touched = false;
+        }
+        if(this.collisionCheckFalse(this.figurant, this.player)){
+            if(!this.figurant.touched){
+                this.figurant.touched = true;
+                
+                if(this.lives > 1){
+                    this.lives--; 
+                } else {
+                    console.log("You hit Santa! GAME OVERRRR");
+                    noLoop();
+                }
+            }
+        }
     }
 
 }
