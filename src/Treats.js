@@ -13,6 +13,7 @@ class Treats {
     }
 
     draw(){
+        //rect(this.x, this.y, this.width, this.height)
         image(presentsPic[this.image], this.x, this.y, this.width, this.height);
         //this.velocity += this.gravity;
         //this.x -= this.velocity;
