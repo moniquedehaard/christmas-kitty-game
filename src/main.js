@@ -1,10 +1,9 @@
-
-function preload() {
+ function preload() {
   //player
   bgImage = loadImage("/images/BG.jpg");
   player = loadImage("/images/Christmas Kitty.png");
   santa = loadImage("/images/Santa's slee.png");
-  heart = loadImage("/images/heart.png")
+  heart =loadImage("/images/heart.png");
 
   // create obstacles array elements
   obstaclesPic[0] = loadImage("/images/Tree.png");

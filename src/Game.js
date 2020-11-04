@@ -3,17 +3,16 @@ class Game{
         this.background = new Background();
         this.figurant = new Figurant();
         this.player = new Player();
-        //this.obstacle = new Obstacle();
         this.obstacles = [];
         this.presents = [];
 
+        // Properties game
+        this.level = 1; 
         this.score = 0;
         this.lives = 7;
-
-        this.level = 1;
-
     }
 
+    // Setup background
     setup(){
         this.background.setup();
     }
@@ -72,24 +71,27 @@ class Game{
         text(`${this.lives}`, 60,80)
 
         /// SPECIFYING LEVELS
-        if(frameCount % 1200 === 0){
+        if(frameCount === 1000){
             console.log('YES NEW LEVEL 2')
             this.level = 2;
         }
-        if(frameCount % 3200 === 0 ){
+        if(frameCount === 2000){
             console.log('YES NEW LEVEL 3')
             this.level = 3;
+        }
+        if (frameCount === 3000){
+            console.log('You WIN, MERRY CHRISTMAS')
+            noLoop();
         }
 
         /// OBSTACLE TIME
         // Adding new Obstacle each x seconds (60 per second)
-        //const count = 10 + Math.floor(random(-20,80));
-        const count = 160;
+        const count = 130 + Math.floor(random(-20,80));
+        //const count = 160;
         if(frameCount % count === 0){ // 2 seconds
             const r = Math.floor(random(0,obstaclesPic.length));
             const newObs = new Obstacle(r,this.level);
             this.obstacles.push(newObs);
-            console.log(newObs.level)
         }
 
 

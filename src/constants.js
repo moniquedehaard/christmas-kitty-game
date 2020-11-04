@@ -10,10 +10,16 @@ let obstaclesPic = [];
 let presentsPic = [];
 let heart;
 
-// levels speed
-let speed1 = 3;
-let speed2 = 7;
-let speed3 = 12;
+
+// LEVELS
+// Level 1
+let speed1 = 5;
+
+// Level 2
+let speed2 = 10;
+
+// Level 3
+let speed3 = 15;
 
 
 

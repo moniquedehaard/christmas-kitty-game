@@ -32,6 +32,32 @@ p {
     font-weight: bold;
 }
 
+
+.landingPage{
+    height: 550px;
+    width: 1050px;
+    background-color: darkgreen;
+    color: white;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.landingPage p {
+    font-size: 35px;
+    font-weight: normal;
+}
+
+.left {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
 .container{
     height: 550px;
     width: 1050px;
