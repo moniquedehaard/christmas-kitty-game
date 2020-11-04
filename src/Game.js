@@ -10,6 +10,7 @@ class Game{
         this.level = 1; 
         this.score = 0;
         this.lives = 7;
+        this.starts = false;
     }
 
     // Setup background

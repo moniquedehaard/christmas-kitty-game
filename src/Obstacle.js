@@ -17,7 +17,7 @@ class Obstacle{
         image(obstaclesPic[this.image], this.x, this.y, this.width, this.height);
 
         if(this.level === 1){
-            this.x -= speed1;
+            this.x -= 5;
         }
         if(this.level === 2){
             this.x -= speed2;

@@ -1,3 +1,18 @@
+
+///// GAME/////
+const game = new Game();
+
+/////// Landing page //////
+const gameDiv = document.querySelector(".game");
+const button = document.getElementById('btn');
+
+button.addEventListener('click', function() { 
+  gameDiv.style.position = 'absolute';
+  game.starts = true;
+})
+
+
+////// Game //////
  function preload() {
   //player
   bgImage = loadImage("/images/BG.jpg");
@@ -15,7 +30,6 @@
   presentsPic[1] = loadImage("/images/present2.png");
 }
 
-const game = new Game();
 
 function setup() {
     let canvas = createCanvas(WIDTH, HEIGHT);
@@ -25,7 +39,9 @@ function setup() {
 
 function draw() {
   clear();
-  game.draw();
+  if(game.starts){
+    game.draw();
+  }
 }
 
 

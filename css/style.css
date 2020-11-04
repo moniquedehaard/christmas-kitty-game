@@ -32,18 +32,25 @@ p {
     font-weight: bold;
 }
 
-
-.landingPage{
+.container {
     height: 550px;
     width: 1050px;
     background-color: darkgreen;
+    position: relative;
+}
+
+.landingPage{
+    height: 100%;
+    width: 100%;
     color: white;
+    background-color: darkgreen;
+
+    position: absolute;
 
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-
 
 .landingPage p {
     font-size: 35px;
@@ -58,11 +65,11 @@ p {
     justify-content: space-around;
 }
 
-.container{
-    height: 550px;
-    width: 1050px;
+.game{
+    height: 100%;
+    width: 100%;
     background-color: darkgreen;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
