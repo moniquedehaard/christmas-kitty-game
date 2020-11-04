@@ -55,6 +55,22 @@ class Game{
         return true;
     }
 
+    // Game over
+    gameOver(){
+        //this.obstacles = [];
+        //this.presents = [];
+        clear();
+        noLoop(); 
+
+
+        textSize(90);
+        textFont('Courier New');
+        textAlign(CENTER)
+        fill(255,255,255);
+        text("GAME OVER",width/2,height/2);
+    }
+
+
     draw(){
         // draw functions
         this.background.draw();
@@ -72,15 +88,34 @@ class Game{
         text(`${this.lives}`, 60,80)
 
         /// SPECIFYING LEVELS
-        if(frameCount === 1000){
-            console.log('YES NEW LEVEL 2')
+        if(frameCount >= 1000 && frameCount < 1100){
+            console.log('YES NEW LEVEL 2');
+            fill(255);
+            textAlign(CENTER);
+            textSize(40);
+            text('Congratulations you made it to level 2!' , width/2, height/2);          
+        }
+        if(frameCount === 1100){
+            console.log('YES NEW LEVEL 2');
             this.level = 2;
         }
-        if(frameCount === 2000){
+
+        if(frameCount >= 2000 && frameCount < 2100){
+            console.log('YES NEW LEVEL 2');
+            fill(255);
+            textAlign(CENTER);
+            textSize(40);
+            text('Congratulations you made it to level 3!' , width/2, height/2);          
+        }
+        if(frameCount === 2100){
             console.log('YES NEW LEVEL 3')
             this.level = 3;
         }
-        if (frameCount === 3000){
+        if (frameCount === 3500){
+            fill(255);
+            textAlign(CENTER);
+            textSize(40);
+            text('YOU WIN, MERRRRRRRY CHRISTMAS!' , width/2, height/2);   
             console.log('You WIN, MERRY CHRISTMAS')
             noLoop();
         }
@@ -101,7 +136,6 @@ class Game{
             // draw obstacle
             obstacle.draw();
 
-         
             // //check if obstacle is out of canvas
             if(obstacle.x + obstacle.width <= offGrid){ // when zero, images are 'moving' 
                 this.obstacles.splice(index, 1);
@@ -114,8 +148,11 @@ class Game{
                     if(this.lives > 1){
                         this.lives--;
                     } else {
+                        //noLoop();
+                        //clear();
                         console.log("GAME OVERRRRR");
-                        noLoop();
+                        this.gameOver();
+                        //noLoop();
                     }
                 }   
             }  
