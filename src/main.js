@@ -24,8 +24,14 @@ const game = new Game();
   // song
   song = loadSound("./images/ChristmasKitty.m4a");
   song.setVolume(0.2);
+
   collisionCat = loadSound("./images/test.mp3");
-  collisionCat.setVolume(0.3);
+  collisionCat.setVolume(0.2);
+
+  collisionPresent = loadSound("./images/present2.mp3");
+  collisionPresent.setVolume(0.3);
+
+  newLife = loadSound('./images/hohoho.mp3')
 }
 
 

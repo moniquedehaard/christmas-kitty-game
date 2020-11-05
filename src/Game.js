@@ -81,7 +81,6 @@ class Game{
 
     youWin(){
         this.reset();
-        song.stop();
 
         game.starts = false;
         gameDiv.style.display = 'none';
@@ -193,8 +192,10 @@ class Game{
             
             // collision check with presents
             if (this.collisionCheckTrue(this.player,present)) {
+                collisionPresent.play();
                 this.score++;
                 if(this.score === presentsForLive){
+                    newLife.play();
                     this.lives++
                     this.score = 0;
                 }

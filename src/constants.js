@@ -13,6 +13,8 @@ let heart;
 // song
 let song;
 let collisionCat;
+let collisionPresent;
+let newLife;
 
 
 // LEVELS
@@ -78,6 +80,7 @@ const buttonReplay = document.querySelectorAll('.restartGame');
 
 buttonReplay.forEach((button) => {
   button.addEventListener('click', function() {
+    song.stop();
     song.play();
     gameOverDiv.style.display = 'none';
     gameWinDiv.style.display = 'none';
