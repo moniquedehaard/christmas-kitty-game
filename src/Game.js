@@ -72,6 +72,7 @@ class Game{
     // Game over
     gameOver(){
         this.reset();
+        song.stop()
 
         game.starts = false;
         gameDiv.style.display = 'none';
@@ -80,6 +81,7 @@ class Game{
 
     youWin(){
         this.reset();
+        song.stop();
 
         game.starts = false;
         gameDiv.style.display = 'none';
@@ -157,6 +159,7 @@ class Game{
             // Collision check and live checks
             if (this.collisionCheckFalse(obstacle, this.player)){
                 if(!obstacle.touched){
+                    collisionCat.play()
                     obstacle.touched = true;
                     if(this.lives > 1){
                         this.lives--;
@@ -207,6 +210,7 @@ class Game{
         }
         if(this.collisionCheckFalse(this.figurant, this.player)){
             if(!this.figurant.touched){
+                collisionCat.play();
                 this.figurant.touched = true;
                 
                 if(this.lives > 1){

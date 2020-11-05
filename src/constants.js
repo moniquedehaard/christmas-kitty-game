@@ -10,6 +10,10 @@ let obstaclesPic = [];
 let presentsPic = [];
 let heart;
 
+// song
+let song;
+let collisionCat;
+
 
 // LEVELS
 // Level 1
@@ -64,6 +68,7 @@ const buttonStart = document.getElementById('btn')
 buttonStart.addEventListener('click', function() { 
   landingPageDiv.style.display = 'none';
   gameDiv.style.display = 'flex';
+  song.play();
   game.starts = true;
 })
 
@@ -73,6 +78,7 @@ const buttonReplay = document.querySelectorAll('.restartGame');
 
 buttonReplay.forEach((button) => {
   button.addEventListener('click', function() {
+    song.play();
     gameOverDiv.style.display = 'none';
     gameWinDiv.style.display = 'none';
     gameDiv.style.display = 'flex';

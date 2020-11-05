@@ -20,6 +20,12 @@ const game = new Game();
   // create presents array
   presentsPic[0] = loadImage("./images/present1.png");
   presentsPic[1] = loadImage("./images/present2.png");
+
+  // song
+  song = loadSound("./images/ChristmasKitty.m4a");
+  song.setVolume(0.2);
+  collisionCat = loadSound("./images/test.mp3");
+  collisionCat.setVolume(0.3);
 }
 
 
