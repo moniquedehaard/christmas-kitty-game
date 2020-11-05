@@ -55,20 +55,38 @@ class Game{
         return true;
     }
 
+    reset(){
+        clear();
+        frameCount = 0;
+        this.figurant = new Figurant();
+        this.obstacles = [];
+        this.presents = [];
+
+        // Properties game
+        this.level = 1; 
+        this.score = 0;
+        this.lives = 7;
+        this.starts = false;
+    }
+
     // Game over
     gameOver(){
-        //this.obstacles = [];
-        //this.presents = [];
-        clear();
-        noLoop(); 
+        this.reset();
 
-
-        textSize(90);
-        textFont('Courier New');
-        textAlign(CENTER)
-        fill(255,255,255);
-        text("GAME OVER",width/2,height/2);
+        game.starts = false;
+        gameDiv.style.display = 'none';
+        gameOverDiv.style.display = 'flex';
     }
+
+    youWin(){
+        this.reset();
+
+        game.starts = false;
+        gameDiv.style.display = 'none';
+        gameWinDiv.style.display = 'flex';
+    }
+
+
 
 
     draw(){
@@ -112,12 +130,7 @@ class Game{
             this.level = 3;
         }
         if (frameCount === 3500){
-            fill(255);
-            textAlign(CENTER);
-            textSize(40);
-            text('YOU WIN, MERRRRRRRY CHRISTMAS!' , width/2, height/2);   
-            console.log('You WIN, MERRY CHRISTMAS')
-            noLoop();
+            this.youWin();
         }
 
         /// OBSTACLE TIME
@@ -148,11 +161,7 @@ class Game{
                     if(this.lives > 1){
                         this.lives--;
                     } else {
-                        //noLoop();
-                        //clear();
-                        console.log("GAME OVERRRRR");
                         this.gameOver();
-                        //noLoop();
                     }
                 }   
             }  
@@ -203,8 +212,7 @@ class Game{
                 if(this.lives > 1){
                     this.lives--; 
                 } else {
-                    console.log("You hit Santa! GAME OVERRRR");
-                    noLoop();
+                    this.gameOver();
                 }
             }
         }

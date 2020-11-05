@@ -1,15 +1,7 @@
 
-///// GAME/////
+// Start new game
 const game = new Game();
 
-/////// Landing page //////
-const gameDiv = document.querySelector(".game");
-const button = document.getElementById('btn');
-
-button.addEventListener('click', function() { 
-  gameDiv.style.position = 'absolute';
-  game.starts = true;
-})
 
 
 ////// Game //////
@@ -36,6 +28,7 @@ function setup() {
     game.setup();
     canvas.parent("canvas");
   }
+
 
 function draw() {
   clear();

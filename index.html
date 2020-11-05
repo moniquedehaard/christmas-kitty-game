@@ -12,24 +12,53 @@
     <h1>Christmas Kitty</h1>
 
     <div class = 'container'>
+
+        <!-- Landing page -->
         <div class = 'landingPage'>
             <div class="left">
                 <p> Ho ho ho! Merry Christmas! </p>
                 <p> Blablablablaa </p>
                 <button id="btn"> CLICK ME</button>
             </div>
+
             <div id="right-container">
                 <img src="./images/Christmas Kitty.png" alt='christmas-kitty'>
             </div>
         </div>
-    
+
+        <!-- GAME  -->
         <div class='game'> 
             <div id="canvas"></div>
         </div>
+
+        <div class = 'gameOver'>
+            <div class="left">
+                <p> Oh nooo! You lost! </p>
+                <p> Do you want to replay? </p>
+                <button class="restartGame"> REPLAY GAME</button>
+            </div>
+            <div>
+                <img src="./images/snowman.png" alt='christmas-kitty'>
+            </div>
+        </div>
+
+        <div class = 'gameWinning'>
+            <div class="left">
+                <p> Yess! You win! </p>
+                <p> MERRY CHRISTMAS! </p>
+                <button class="restartGame"> REPLAY GAME</button>
+            </div>
+            <div>
+                <img src="./images/Tree.png" alt='christmas-kitty'>
+            </div>
+        </div>
+
     </div>
+
+
     
     
-    <p> Test test test </p>
+    <p class="end"> Test test test </p>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script> -->
     <script src="./src/constants.js"></script>
     <script src="./src/Figurant.js"></script>

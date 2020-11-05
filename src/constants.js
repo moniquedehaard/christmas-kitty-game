@@ -39,3 +39,43 @@ let maxNumberOfJumps = 2;
 //// SETTINGS OF OBSTACLES ///
 let obstacleWidth = 80;
 let obstacleHeight = 100;
+
+
+
+
+
+////// DIFFERENT LANDING PAGES WITH DOMMANITPULATION//////
+// start game - landing page
+const landingPageDiv = document.querySelector(".landingPage")
+
+// Start game 
+const gameDiv = document.querySelector(".game");
+
+// game over 
+const gameOverDiv = document.querySelector(".gameOver");
+
+// you win
+const gameWinDiv = document.querySelector(".gameWinning")
+
+
+// Start game button
+const buttonStart = document.getElementById('btn')
+
+buttonStart.addEventListener('click', function() { 
+  landingPageDiv.style.display = 'none';
+  gameDiv.style.display = 'flex';
+  game.starts = true;
+})
+
+
+// Re-play button
+const buttonReplay = document.querySelectorAll('.restartGame');
+
+buttonReplay.forEach((button) => {
+  button.addEventListener('click', function() {
+    gameOverDiv.style.display = 'none';
+    gameWinDiv.style.display = 'none';
+    gameDiv.style.display = 'flex';
+    game.starts = true;
+  })
+})
