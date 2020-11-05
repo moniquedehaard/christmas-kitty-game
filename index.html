@@ -17,12 +17,14 @@
         <!-- Landing page -->
         <div class = 'landingPage'>
             <div class="left">
-                <p> Ho ho ho! Merry Christmas! </p>
-                <p> Blablablablaa </p>
-                <button id="btn"> CLICK ME</button>
+                <p id='title'> HO HO HO! Merry Christmas! </p>
+                <p> Christmas Kitty doesn't want to be alone this Xmas. He needs to go home... but he should avoid the xmas-trees, snowmen and the lost reindeers. </p>
+                <p> Santa is also trying to get to the city, but he is loosing some presents. Christmas Kitty could catch these, to save his life. 10 presents are equal to 1 extra life.</p>
+                <p> Pressing the -SPACEBAR- would make the Christmas Kitty jump</p>
+                <button id="btn"> PLAY GAME</button>
             </div>
 
-            <div id="right-container">
+            <div class="right">
                 <img src="./images/Christmas Kitty.png" alt='christmas-kitty'>
             </div>
         </div>
@@ -34,32 +36,34 @@
 
         <div class = 'gameOver'>
             <div class="left">
-                <p> Oh nooo! You lost! </p>
-                <p> Do you want to replay? </p>
+                <p id ='title'> Oh nooo! You lost! </p>
+                <p> Do you want to replay and bring Christmas Kitty to his home? </p>
                 <button class="restartGame"> REPLAY GAME</button>
             </div>
-            <div>
+            <div class='right'>
                 <img src="./images/snowman.png" alt='christmas-kitty'>
             </div>
         </div>
 
         <div class = 'gameWinning'>
             <div class="left">
-                <p> Yess! You win! </p>
-                <p> MERRY CHRISTMAS! </p>
+                <p id='title'> Yesss! You win! </p>
+                <p id = 'title'> MERRY CHRISTMAS! </p>
+                <p> Christmas Kitty is finally home and on time for all the presents! </p>
+                <p> Do you want to play again? </p>
+                <p>Press the -BUTTON- below!</p>
                 <button class="restartGame"> REPLAY GAME</button>
             </div>
-            <div>
+            <div class = 'right'>
                 <img src="./images/Tree.png" alt='christmas-kitty'>
             </div>
         </div>
 
     </div>
 
-
+    <p class = "footer"> &copy;Ironhack, Monique de Haard  </p>
     
     
-    <p class="end"> Test test test </p>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script> -->
     <script src="./src/constants.js"></script>
     <script src="./src/Figurant.js"></script>

@@ -107,30 +107,26 @@ class Game{
         text(`${this.lives}`, 60,80)
 
         /// SPECIFYING LEVELS
-        if(frameCount >= 1000 && frameCount < 1100){
-            console.log('YES NEW LEVEL 2');
+        if(frameCount >= 1400 && frameCount < 1500){
             fill(255);
             textAlign(CENTER);
             textSize(40);
             text('Congratulations you made it to level 2!' , width/2, height/2);          
         }
-        if(frameCount === 1100){
-            console.log('YES NEW LEVEL 2');
+        if(frameCount === 1500){
             this.level = 2;
         }
 
-        if(frameCount >= 2000 && frameCount < 2100){
-            console.log('YES NEW LEVEL 2');
+        if(frameCount >= 2900 && frameCount < 3000){
             fill(255);
             textAlign(CENTER);
             textSize(40);
             text('Congratulations you made it to level 3!' , width/2, height/2);          
         }
-        if(frameCount === 2100){
-            console.log('YES NEW LEVEL 3')
+        if(frameCount === 3000){
             this.level = 3;
         }
-        if (frameCount === 3500){
+        if (frameCount === 4980){
             this.youWin();
         }
 

@@ -34,7 +34,7 @@ const game = new Game();
   newLife = loadSound('./images/hohoho.mp3')
 }
 
-
+////// STARTS P5 /////
 function setup() {
     let canvas = createCanvas(WIDTH, HEIGHT);
     game.setup();

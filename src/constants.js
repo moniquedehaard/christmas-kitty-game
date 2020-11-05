@@ -70,6 +70,7 @@ const buttonStart = document.getElementById('btn')
 buttonStart.addEventListener('click', function() { 
   landingPageDiv.style.display = 'none';
   gameDiv.style.display = 'flex';
+  game.reset();
   song.play();
   game.starts = true;
 })
@@ -81,10 +82,11 @@ const buttonReplay = document.querySelectorAll('.restartGame');
 buttonReplay.forEach((button) => {
   button.addEventListener('click', function() {
     song.stop();
-    song.play();
     gameOverDiv.style.display = 'none';
     gameWinDiv.style.display = 'none';
     gameDiv.style.display = 'flex';
+    game.reset();
+    song.play();
     game.starts = true;
   })
 })
