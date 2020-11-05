@@ -84,7 +84,7 @@ p {
     font-weight: bold;
 }
 
-button {
+.restartGame, #btn {
     height: 70px;
     width: 250px;
     background-color: red;
@@ -95,6 +95,8 @@ button {
     font-weight: bold;
     font-size: 28px
 }
+
+
 
 .game{
     height: 100%;
@@ -135,7 +137,6 @@ button {
     justify-content: space-around;
     align-items: center;
 }
-
 
 .footer {
     font-size: 30px;
